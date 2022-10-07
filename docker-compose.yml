@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  snowhrestt:
+    image: snowhrest:latest
+    container_name: snowhrest
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    ports:
+      - 6000:3000
+    environment:
+      - HCLI_PAYER=<payer id>
+      - HCLI_PAYERPRIVKEY=<payer private key>
+      - HCLI_NETWORK=testnet
+    volumes:
+      - <local path to certificates>:/hrest/certs
+      - <local path to wallets>:/hrest/wallets
