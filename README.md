@@ -1,4 +1,6 @@
 # snowhrest
+
+---
 Running the Hedera connector for ServiceNow in a Docker container
 
 ## What's inside?
@@ -17,30 +19,33 @@ When the container is running, the hrest connector listen on the port **3000**.
 `git clone git@github.com:cgirdal/snowhrest.git`
 
 2. Preparing the local folders that will be mounted into the container
+
 ```
 mkdir snowhrest/certs
 mkdir snowhrest/wallets
 ```
 
 3. Creating the configuration file for the certificate
+
 ```
 cd snowhrest/certs
 vi my.conf
 ```
+
 *or use nano if you prefer*
 
-The my.conf file must have the following content:
+The my.conf file must have the following content:  
 ```
-[req]
-distinguished_name=req
-[SAN]
-subjectAltName=IP:<Your server (public) IP address>
-[alternate_names]
+[req]  
+distinguished_name=req  
+[SAN]  
+subjectAltName=IP:<Your server (public) IP address>  
+[alternate_names]  
 DNS.1=<Your server fqdn>
-```
+```  
 Replace *\<Your server (public) IP address\>* and *\<Your server fqdn\>* by the real values
 
-4. Creating the certificate
+4. Creating the certificate  
 
 ```
 openssl genrsa -out mykey 2048
