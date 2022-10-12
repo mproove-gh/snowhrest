@@ -16,3 +16,4 @@ services:
     volumes:
       - <local path to certificates>:/hrest/certs
       - <local path to wallets>:/hrest/wallets
+      - <local path to users>:/hrest/users
