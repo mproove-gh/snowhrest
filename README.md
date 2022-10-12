@@ -53,5 +53,9 @@ openssl req -new -x509 -key mykey -out mycert -days 3650 -subj /CN=servicenow.co
 ```
 You should now have 3 files in the *certs* folder: *my.conf*, *mycert* and *mykey*
 
-
+5. Building the container
+```
+cd ../
+docker build -t snowhrest .
+```
 
