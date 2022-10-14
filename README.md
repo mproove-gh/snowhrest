@@ -14,18 +14,19 @@ When the container is running, the hrest connector listen on the port **3000**.
 
 ## Deploying the container:
 
-1. Cloning the repository
+### Cloning the repository
 
 `git clone git@github.com:cgirdal/snowhrest.git`
 
-2. Preparing the local folders that will be mounted into the container
+### Preparing the local folders that will be mounted into the container
 
 ```
 mkdir snowhrest/certs
 mkdir snowhrest/wallets
+mkdir snowhrest/users
 ```
 
-3. Creating the configuration file for the certificate
+### Creating the configuration file for the certificate
 
 ```
 cd snowhrest/certs
@@ -45,7 +46,7 @@ DNS.1=<Your server fqdn>
 ```  
 Replace *\<Your server (public) IP address\>* and *\<Your server fqdn\>* by the real values
 
-4. Creating the certificate  
+### Creating the certificate  
 
 ```
 openssl genrsa -out mykey 2048
@@ -53,9 +54,10 @@ openssl req -new -x509 -key mykey -out mycert -days 3650 -subj /CN=servicenow.co
 ```
 You should now have 3 files in the *certs* folder: *my.conf*, *mycert* and *mykey*
 
-5. Building the container
+### Building the container
 ```
 cd ../
 docker build -t snowhrest .
 ```
 
+### modifying the docker-compose.yaml file
