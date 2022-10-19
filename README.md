@@ -16,7 +16,7 @@ When the container is running, the hrest connector listen on the port **3000**.
 
 ### Cloning the repository
 
-`git clone git@github.com:cgirdal/snowhrest.git`
+`git clone git@github.com:mproove-gh/snowhrest.git`
 
 ### Preparing the local folders that will be mounted into the container
 
