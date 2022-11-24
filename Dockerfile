@@ -1,4 +1,8 @@
 FROM alpine:latest
+ENV HEDERA_USER=hedera
+
+RUN addgroup -g 9999 $HEDERA_USER \
+ && adduser -u 9999 -G $HEDERA_USER -D $HEDERA_USER
 
 RUN apk update && apk upgrade \
  && apk add nodejs \
@@ -11,6 +15,8 @@ WORKDIR /hrest
 RUN npm update \
  && npm install
 
-EXPOSE 3000
+RUN chown -R $HEDERA_USER:$HEDERA_USER /hrest
 
-CMD node ./hrest.js
+EXPOSE 3000
+USER $HEDERA_USER
+CMD ["node", "./hrest.js"]
