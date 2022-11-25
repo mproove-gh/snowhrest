@@ -11,6 +11,7 @@ The Nicola Attico's hrest repository is cloned in the image.
 Then "npm update" and "npm install" update the dependencies and install the third party needed modules described in the package.json file. 
 
 When the container is running, the hrest connector listen on the port **3000**.
+it runs with an unprivileged user having **9999** for **uid** and **gid**. 
 
 ## Deploying the container:
 
