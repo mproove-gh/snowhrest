@@ -14,6 +14,14 @@ When the container is running, the hrest connector listen on the port **3000**.
 
 ## Deploying the container:
 
+### Creating the hedera user on you docker host system
+This user and its group must have the uid (& gid) 9999
+*Here's an example on a Ubuntu 22.04 system:*
+```
+addgroup --gid 9999 hedera
+adduser --uid 9999 -ingroup hedera hedera
+```
+
 ### Cloning the repository
 
 `git clone git@github.com:mproove-gh/snowhrest.git`
@@ -54,6 +62,11 @@ openssl req -new -x509 -key mykey -out mycert -days 3650 -subj /CN=servicenow.co
 ```
 You should now have 3 files in the *certs* folder: *my.conf*, *mycert* and *mykey*
 
+### Change the ownership of the snowhrest folder and its content
+```
+chown -R hedera:hedera snowhrest
+```
+
 ### Building the container
 ```
 cd ../
@@ -61,3 +74,5 @@ docker build -t snowhrest .
 ```
 
 ### modifying the docker-compose.yaml file
+- Enter the value of the HCLI_PAYER and HCLI_PAYERPRIVKEY in the **environment** section
+- Map the correct paths to the *certs*, *wallets* and *users* folders in the **volumes** section
