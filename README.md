@@ -77,3 +77,5 @@ docker build -t snowhrest .
 ### modifying the docker-compose.yaml file
 - Enter the value of the HCLI_PAYER and HCLI_PAYERPRIVKEY in the **environment** section
 - Map the correct paths to the *certs*, *wallets* and *users* folders in the **volumes** section
+
+### Run the container
