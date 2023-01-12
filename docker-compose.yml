@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   snowhrestt:
-    image: snowhrest:latest
+    image: cgirdal/snowhrest:latest
     container_name: snowhrest
     restart: unless-stopped
     stdin_open: true
