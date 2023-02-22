@@ -4,6 +4,7 @@ services:
   snowhrest:
     container_name: snowhrest
     build:
+      context: .
       dockerfile: ./Dockerfile_snowhrest
     restart: unless-stopped
     stdin_open: true
@@ -11,19 +12,10 @@ services:
     ports:
       - 3000:3000
     environment:
-      HCLI_PAYER=/run/secrets/hcli_payer
-      HCLI_PAYERPRIVKEY=/run/secrets/hcli_payerprivkey
-      HCLI_NETWORK=testnet
+      - HCLI_PAYER: <change_me>
+      - HCLI_PAYERPRIVKEY: <change_me>
+      - HCLI_NETWORK=testnet
     volumes:
       - <local path to certificates>:/hrest/certs
       - <local path to wallets>:/hrest/wallets
       - <local path to users>:/hrest/users
-    secrets:
-      - hcli_payer
-      - hcli_payerprivkey
-
-secrets:
-  hcli_payer:
-    file: ./secret.hcli_payer.txt
-  hcli_payerprivkey:
-    file: ./secret.hcli_payerprivkey.txt
