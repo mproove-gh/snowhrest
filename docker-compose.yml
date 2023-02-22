@@ -12,15 +12,9 @@ services:
     ports:
       - 3000:3000
     environment:
-<<<<<<< HEAD
       HCLI_PAYER=<change_me>
       HCLI_PAYERPRIVKEY=<change_me>
       HCLI_NETWORK=testnet
-=======
-      - HCLI_PAYER: <change_me>
-      - HCLI_PAYERPRIVKEY: <change_me>
-      - HCLI_NETWORK=testnet
->>>>>>> e34112532af0e4bdcf4ce76af2b67d51e08864be
     volumes:
       - <local path to certificates>:/hrest/certs
       - <local path to wallets>:/hrest/wallets

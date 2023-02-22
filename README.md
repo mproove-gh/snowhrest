@@ -71,12 +71,8 @@ You should now have 3 files in the *certs* folder: *my.conf*, *mycert* and *myke
 chown -R hedera:hedera snowhrest
 ```
 
-### Creating the files for the secrets (HCLI_PAYER & HCLI_PAYERPRIVKEY)
-Create, in the same folder as the docker-compose.yaml file, 2 text files:
-- *secret.hcli_payer.txt* => containing only the main hedera account id for the connector
-- *secret.hcli_payerprivkey.txt* => containing only the private key of the main hedera account
-
 ### Modifying the docker-compose.yaml file
+- Enter the correct values for the HCLI_PAYER and HCLI_PAYERPRIVKEY environment variables
 - Map the correct paths to the *certs*, *wallets* and *users* folders in the **volumes** section
 
 ### Build the image and run the container
